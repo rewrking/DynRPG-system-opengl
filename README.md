@@ -1,2 +1,4 @@
 # system_opengl
-Add and OpenlGL rendere to older RPG Maker 2003 games
+Add and OpenlGL renderer to older RPG Maker 2003 games
+
+(Documentation forthcoming)

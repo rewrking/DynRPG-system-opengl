@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="system_opengl" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="C:/Program Files (x86)/rpg2003/Ejourney/DynPlugins/system_opengl" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-std=c++11" />
+					<Add option="-DBUILD_DLL" />
+					<Add directory="C:/SFML-2.4.2-TDM-GCC-32/include" />
+					<Add directory="C:/sfeMovie-TDM-GCC-32/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="mingw32" />
+					<Add library="user32" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-audio" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+					<Add library="sfml-network" />
+					<Add library="DynRPG" />
+					<Add directory="C:/SFML-2.4.2-TDM-GCC-32/lib" />
+					<Add directory="C:/sfeMovie-TDM-GCC-32/lib" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="C:\Program Files (x86)\rpg2003\EJourney\RPG_RT.exe" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Unit filename="OptionsMenu.cpp" />
+		<Unit filename="OptionsMenu.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

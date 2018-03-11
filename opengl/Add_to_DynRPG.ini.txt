@@ -1,0 +1,75 @@
+[system_opengl]
+; Game ini filename 
+; Default: Settings.ini
+GameIniFilename=Settings.ini
+; Shader Syntax:
+;   Shader#=filenameNoExt
+;     (filenames should be formatted as Shader_Name (title case with underscores) for menus
+;   Shader#frag=true  --defined as a .frag (pixel shader)
+;   Shader#frag=true  --defined as a .vert (vertex shader)
+;     (both can use combined if using both .frag & .vert)
+;   Shader2useTexDims=true  --shader requires the use of the texture dimensions of the screen (320x240). 
+;     This value is hard-coded and looks for a uniform vec2 called "texture_dimensions"
+;     If you need input/output size, just use texture_dimensions.xy for input and texture_dimensions.xy*# for output.
+;   Shader2numFloatParams=#
+;   Shader#paramFloat#name=paramvarname
+;     (The parameter's value is set via comment command (by its name)
+; Default: 2
+NumShaders=5
+DisableVideoMenu=false
+;
+Shader1=Scale2x
+Shader1frag=true
+Shader1useTexDims=true
+;
+Shader2=CRT
+Shader2frag=true
+Shader2useTexDims=true
+Shader2numFloatParams=2
+Shader2paramFloat1name=distortion
+Shader2paramFloat2name=zoom
+;
+Shader3=Game_Boy
+Shader3frag=true
+;
+Shader4=Game_Boy_Pocket
+Shader4frag=true
+;
+Shader5=Virtual_Boy
+Shader5frag=true
+;
+Shader6=Old_PC
+Shader6frag=true
+;
+Shader7=Noir
+Shader7frag=true
+;
+Shader8=Sepia
+Shader8frag=true
+;
+Shader8=Invert
+Shader8frag=true
+;
+Shader10=CB_Protanopia
+Shader10frag=true
+;
+Shader11=CB_Deuteranopia
+Shader11frag=true
+;
+Shader12=CB_Tritanopia
+Shader12frag=true
+;
+Shader13=CB_Achromatopsia
+Shader13frag=true
+;
+Shader14=CB_Protanomaly
+Shader14frag=true
+;
+Shader15=CB_Deuteranomaly
+Shader15frag=true
+;
+Shader16=CB_Tritanomaly
+Shader16frag=true
+;
+Shader17=CB_Achromatomaly
+Shader17frag=true

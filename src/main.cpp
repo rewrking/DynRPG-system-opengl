@@ -682,10 +682,17 @@ bool onStartup(char *pluginName)
         if (confWindowScale > maxScale) confWindowScale = maxScale;
     }
 
+    // HERE BE DRAGONS!!!
+    //********************************************************************
     // the following cast forces RPG_RT.exe to start in a window
     //   (which is later fullscreened based on the ini settings
-    //********************************************************************
     *reinterpret_cast<short *>(0x48FA57) = 0x9090;
+    //********************************************************************
+    // This hides the gray border
+    *reinterpret_cast<uint8_t *>(0x46A91C) = 0;
+    *reinterpret_cast<uint8_t *>(0x46B8CA) = 0;
+    *reinterpret_cast<uint8_t *>(0x46B38B) = 0;
+    *reinterpret_cast<uint8_t *>(0x46B3A5) = 0;
     //********************************************************************
 
     // --Debugging console--
@@ -698,7 +705,7 @@ bool onStartup(char *pluginName)
 }
 
 void onInitFinished() {
-    // HERE BE DRAGONS!!!
+    // HERE BE MORE DRAGONS!!!
     //********************************************************************
     // Hiding the window parents are generally for presentation purposes, but this one in particular speeds up the initial fullscreen
     if (useOpenGl) ShowWindow(GetParent(RPG::screen->getCanvasHWND()),SW_HIDE);
@@ -861,26 +868,16 @@ void onDrawScreen() {
             if (playingMovie) {
                 m_win->clear(sf::Color::Black);
 
-                /*sf::Font newFont;
-                newFont.loadFromFile("DynPlugins\\miranda_nbp.ttf");
-                sf::Text debug;
-                debug.setFont(newFont);
-                std::stringstream temp;
-                //temp << RPG::screen->_unknown_B4 << " " << RPG::screen->_unknown_B8 << " " << RPG::screen->_unknown_BC << " " << RPG::screen->_unknown_A0 << " " << RPG::screen->_unknown_A4;
-                debug.setString(temp.str());
-                debug.setFillColor(sf::Color::White);
-                debug.setCharacterSize(32);
-                debug.setPosition(8,64);
-                m_win->draw(debug);*/
-
                 if (!RPG::screen->movieIsPlaying) {
                     playingMovie = false;
 
+                    HWND winContext = GetParent(RPG::screen->getCanvasHWND());
                     if (confFullscreen) {
                         m_win->setVisible(true);
-                        ShowWindow(GetParent(GetParent(RPG::screen->getCanvasHWND())),SW_HIDE);
+                        SetWindowPos(winContext, HWND_TOP, 0, 0, RM_WIDTH*confWindowScale, RM_HEIGHT*confWindowScale, SWP_FRAMECHANGED);
+                        ShowWindow(GetParent(winContext), SW_HIDE);
                     } else {
-                        //ShowWindow(GetParent(RPG::screen->getCanvasHWND()),SW_HIDE);
+                        ShowWindow(winContext, SW_HIDE);
                     }
                 }
             }
@@ -930,21 +927,21 @@ bool onEventCommand(RPG::EventScriptLine *scriptLine, RPG::EventScriptData *scri
     //********************************************************************
 
     if (scriptLine->command == RPG::EVCMD_PLAY_MOVIE && useOpenGl) {
-
+        // Hide the 2k3 canvas since it will appear when
         scriptLine->parameters[1] = 0 + scriptLine->parameters[1];
-        scriptLine->parameters[2] = 1 + scriptLine->parameters[2]; // a small offset will eliminate the gray border in the movieHWND
+        // Amazingly, the 0.1 is enough offset to place the movie outside of the canvas's context window
+        // If it's inside, it won't display at all if parameters 3 & 4 are bigger than 640x480
+        scriptLine->parameters[2] = 0.1 + scriptLine->parameters[2];
         scriptLine->parameters[3] = scriptLine->parameters[3]*confWindowScale;
         scriptLine->parameters[4] = scriptLine->parameters[4]*confWindowScale;
 
-        // This is a garbage solution for an ill-conconceived RPG Maker command
-        // If play movie is run when OpenGL is in fullscreen mode, jump to windowed mode to view the movie
+        HWND winContext = GetParent(RPG::screen->getCanvasHWND());
         if (confFullscreen) {
             m_win->setVisible(false);
-            ShowWindow(GetParent(GetParent(RPG::screen->getCanvasHWND())),SW_SHOW);
-            SetWindowPos(GetParent(RPG::screen->getCanvasHWND()), HWND_TOP, 0, 0, 640, 480, SWP_SHOWWINDOW);
+            ShowWindow(GetParent(winContext),SW_SHOW);
+            SetWindowPos(winContext, HWND_TOP, 0, 0, 640, 480, SWP_SHOWWINDOW);
         } else {
-            // If in windowed mode already, no problem
-            SetWindowPos(GetParent(RPG::screen->getCanvasHWND()), HWND_TOP, 0, 0, 640, 480, SWP_SHOWWINDOW);
+            SetWindowPos(winContext, HWND_TOP, 0, 0, 640, 480, SWP_SHOWWINDOW);
         }
 
         // Hide the 2k3 canvas since it will appear when

@@ -2,6 +2,8 @@
 ##### v1.0
 A DynRPG plugin to enable OpenGL rendering in older RPG Maker 2003 games
 
+![screenshot](https://rpgmaker.net/media/content/users/40/locker/rmopengl.png)
+
 Features:  
    * Fast Fullscreen/Windowed mode switching
    * **Large window sizes** (up to the desktop resolution's height... 4k etc.)

@@ -18,25 +18,22 @@ Features:
 Note: If your game uses the "Play Movie" command, this plugin doesn't handle it well from a fullscreen context (since OpenGL's fullscreen mode is exclusive), so it has to switch back to a window. This is obviously not great, but it's the best I could do. If playing in a window, the video should play fine. Personally, I would suggest not using "Play Movie" at all since it's garbage to begin with (calling it twice in a row for example will show a black screen the second time). If that doesn't apply to you, then onward!
 
 ## Usage
-___
 
 **F4 key** - now toggles between numerous window sizes supported by your monitor (1x, 2x, 3x, 4x etc)
 
 **F5 key** - Launches into the "Video Options" menu, navigated with arrow keys. F5 again, or Escape will exit the menu.
 
 ## Changelog
-___
 
 1.0 -  Initial release
 
 
 ## Plugin Conflicts
-___
+
 **[game_settings](https://github.com/andrew-r-king/game_settings)** - This plugin must be removed before installing this one. Take out any files related to "another fullscreen mode" as they won't be needed.
 
 
 ## Installation
-___
 
 To install the plugin, make sure that you have patched your project with Cherry's DynRPG patch which can be found here:  
 http://share.cherrytree.at/showfile-30511/dynrpg_0_32_02_25_2017.rar (v0.32 Unofficial)
@@ -193,7 +190,7 @@ http://www.rewking.com/dynrpg/
 
 
 ## Notes about Translations
-___
+
 
 Supported "Video Options" menu translations:
    * **en** (English)
@@ -227,8 +224,8 @@ As of 1.0, the non-english translations are literally from google translate, so 
 The key (first value) will always be in english TitleCase, whereas the actual translation will be the value to the right. The header (en) in this case define what language this is. It can be anything, but I decided to go with 2 character abbreviations
 
 
-## Commands
-___
+## DynRPG Comment Commands
+
 ### **==Misc==**
 
 **@load_video_options**
@@ -309,7 +306,7 @@ Use in custom menus. These work the same way as they do in the Video Options men
 
 
 ## Advanced (Recompiling form source & adding stuff)
-___
+
 Since this effectively turns your project into one that supports OpenGL, you can expand on your poject in some new (but limited) ways.
 
 First limitation is to keep in mind this does NOT allow you to place OpenGL objects inside of your game. It's simply a new renderer. However, if you want to dip your toes into SFML and maybe make some menus or something that can be layered on top of the existing engine, read further.

@@ -307,7 +307,7 @@ Use in custom menus. These work the same way as they do in the Video Options men
 
 ## Advanced (Recompiling form source & adding stuff)
 
-Since this effectively turns your project into one that supports OpenGL, you can expand on your poject in some new (but limited) ways.
+Since this effectively turns your project into one that supports OpenGL, you can expand on your project in some new (but limited) ways.
 
 First limitation is to keep in mind this does NOT allow you to place OpenGL objects inside of your game. It's simply a new renderer. However, if you want to dip your toes into SFML and maybe make some menus or something that can be layered on top of the existing engine, read further.
 

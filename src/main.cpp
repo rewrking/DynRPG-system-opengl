@@ -689,10 +689,10 @@ bool onStartup(char *pluginName)
     *reinterpret_cast<short *>(0x48FA57) = 0x9090;
     //********************************************************************
     // This hides the gray border
-    *reinterpret_cast<uint8_t *>(0x46A91C) = 0;
-    *reinterpret_cast<uint8_t *>(0x46B8CA) = 0;
-    *reinterpret_cast<uint8_t *>(0x46B38B) = 0;
-    *reinterpret_cast<uint8_t *>(0x46B3A5) = 0;
+    *reinterpret_cast<uint8_t *>(0x46A91C) = 0x00;
+    *reinterpret_cast<uint8_t *>(0x46B8CA) = 0x00;
+    *reinterpret_cast<uint8_t *>(0x46B38B) = 0x00;
+    *reinterpret_cast<uint8_t *>(0x46B3A5) = 0x00;
     //********************************************************************
 
     // --Debugging console--
@@ -815,6 +815,7 @@ void onDrawScreen() {
             if ((KEY_DOWN(VK_F4) && !altDown) || (altDown && KEY_DOWN(VK_RETURN))) {
                 if (!keyDown) {
                     setFullscreen(!confFullscreen);
+                    if (videoOptions->visible) videoOptions->updateMenu();
                     keyDown = true;
                 }
             // F5 key

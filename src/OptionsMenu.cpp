@@ -102,7 +102,7 @@ void OptionsMenu::init()
 
     //_minFullscreenText = isWindowsVistaOrHigher() ? "640 x 480" : "320 x 240";
     _minFullscreenText = "640 x 480";
-    _updateMenu();
+    updateMenu();
 }
 
 void OptionsMenu::update(bool withInput)
@@ -164,7 +164,7 @@ void OptionsMenu::update(bool withInput)
         // Update the menus if a key has been pressed
         if (keyDown) {
             if (action > _numOptions) action = _numOptions;
-            _updateMenu();
+            updateMenu();
         }
 
     }
@@ -195,7 +195,7 @@ void OptionsMenu::resetSprite() {
     spr.setPosition(m_winsprite->getPosition());
 }
 
-void OptionsMenu::_updateMenu()
+void OptionsMenu::updateMenu()
 {
     if (confFullscreen) {
         if (confUseDesktopResolution) {

@@ -11,7 +11,7 @@ Features:
    * **Video Options** menu similar to the Retail/Steam version of RM2003 (but drawn in OpenGL)
    * **TRANSLATIONS** for the Video Options menu mentioned above
    * An actual screenshot key that will capture a perfect 320x240 screenshot (without shaders) to a png file.
-   * **[SFML](https://www.sfml-dev.org/documentation/2.4.2/index.php)** Hooks
+   * **[SFML](https://www.sfml-dev.org/documentation/2.4.2/index.php)** (See advanced section at the bottom of the page)
 
 Note: If your game uses the "Play Movie" command, this plugin doesn't handle it well from a fullscreen context (since OpenGL's fullscreen mode is exclusive), so it has to switch back to a window. This is obviously not great, but it's the best I could do. If playing in a window, the video should play fine. Personally, I would suggest not using "Play Movie" at all since it's garbage to begin with (calling it twice in a row for example will show a black screen the second time). If that doesn't apply to you, then onward!
 

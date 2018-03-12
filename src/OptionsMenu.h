@@ -100,6 +100,7 @@ class OptionsMenu {
 		void update(bool withInput = true);
 		void draw();
 		void resetSprite();
+		void updateMenu();
 
 	private:
 	    sf::RectangleShape _rect;
@@ -123,7 +124,6 @@ class OptionsMenu {
 	    int _textItr;
 	    unsigned char _alpha;
 
-	    void _updateMenu();
 	    void _buildMenuOption(OptionsMenuActions_T &option);
 	    void _getAction();
 	    void _drawShadowed(sf::Text &text);

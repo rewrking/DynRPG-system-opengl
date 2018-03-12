@@ -11,6 +11,7 @@ Features:
    * **Video Options** menu similar to the Retail/Steam version of RM2003 (but drawn in OpenGL)
    * **TRANSLATIONS** for the Video Options menu mentioned above
    * An actual screenshot key that will capture a perfect 320x240 screenshot (without shaders) to a png file.
+   * **[SFML](https://www.sfml-dev.org/documentation/2.4.2/index.php)** Hooks
 
 Note: If your game uses the "Play Movie" command, this plugin doesn't handle it well from a fullscreen context (since OpenGL's fullscreen mode is exclusive), so it has to switch back to a window. This is obviously not great, but it's the best I could do. If playing in a window, the video should play fine. Personally, I would suggest not using "Play Movie" at all since it's garbage to begin with (calling it twice in a row for example will show a black screen the second time). If that doesn't apply to you, then onward!
 
@@ -47,6 +48,15 @@ http://www.rewking.com/dynrpg/
 2. Copy the contents of the "opengl" folder into a DynRPG project folder. You should now have:
    * A "Shaders" folder
    * A "Settings.ini" file
+   * SFML .dll files: 
+      * libgcc_s_sjlj-1.dll
+      * libstdc++-6.dll
+      * openal32.dll
+      * sfml-audio-2.dll
+      * sfml-graphics-2.dll
+      * sfml-network-2.dll
+      * sfml-system-2.dll
+      * sfml-window-2.dll
    * An "Add_to_DynRPG.ini.txt" file
    * DynPlugins\miranda_nbp.ttf - The font used for the Video Options menu
    * DynPlugin\system_opengl.dll
@@ -294,3 +304,20 @@ Use in custom menus. These work the same way as they do in the Video Options men
 **@get_direct_draw_is_fullscreen**
    * In DirectDraw mode, sets a switch to whether it's in fullscreen mode or not
 	   1. **number** - the ID of the switch
+
+
+## Advanced (Recompiling form source & adding stuff)
+___
+Since this effectively turns your project into one that supports OpenGL, you can expand on your poject in some new (but limited) ways.
+
+First limitation is to keep in mind this does NOT allow you to place OpenGL objects inside of your game. It's simply a new renderer. However, if you want to dip your toes into SFML and maybe make some menus or something that can be layered on top of the existing engine, read further.
+
+Recompiling this plugin has a big requirement. Not just ANY version of SFML, but only the included version that I've compiled for TDM GCC 4.8.1 (The compiler that DynRPG requires)
+
+1. Extract the **src\\SFML-2.4.2-TDM-GCC-32.7z** file with 7-zip to **C:\\SFML-2.4.2-TDM-GCC-32\\**
+
+2. Copy the rest of the included **src** folder somewhere and open the **system_opengl.cbp** project file.
+
+3. The linker and search directories for SFML should be setup already. Make sure DynRPG is in your compiler's include folder (C:\\TDM-GCC-32\\ in my case).
+
+4. Build it. It should compile.

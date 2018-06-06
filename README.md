@@ -1,5 +1,5 @@
 # system_opengl
-##### v1.0
+##### v1.1
 A DynRPG plugin to enable OpenGL rendering in older RPG Maker 2003 games
 
 ![screenshot](https://rpgmaker.net/media/content/users/40/locker/rmopengl.png)
@@ -13,7 +13,7 @@ Features:
    * **Video Options** menu similar to the Retail/Steam version of RM2003 (but drawn in OpenGL)
    * **TRANSLATIONS** for the Video Options menu mentioned above
    * An actual screenshot key that will capture a perfect 320x240 screenshot (without shaders) to a png file.
-   * **[SFML](https://www.sfml-dev.org/documentation/2.4.2/index.php)** (See advanced section at the bottom of the page)
+   * **[SFML](https://www.sfml-dev.org/documentation/2.5.0/)** (See advanced section at the bottom of the page)
 
 Note: If your game uses the "Play Movie" command, this plugin doesn't handle it well from a fullscreen context (since OpenGL's fullscreen mode is exclusive), so it has to switch back to a window. This is obviously not great, but it's the best I could do. If playing in a window, the video should play fine. Personally, I would suggest not using "Play Movie" at all since it's garbage to begin with (calling it twice in a row for example will show a black screen the second time). If that doesn't apply to you, then onward!
 
@@ -25,6 +25,7 @@ Note: If your game uses the "Play Movie" command, this plugin doesn't handle it 
 
 ## Changelog
 
+1.1 -  Updated SFML to v2.5.0 (update all *.dll files from this repo into your game)
 1.0 -  Initial release
 
 
@@ -313,7 +314,7 @@ First limitation is to keep in mind this does NOT allow you to place OpenGL obje
 
 Recompiling this plugin has a big requirement. Not just ANY version of SFML, but only the included version that I've compiled for TDM GCC 4.8.1 (The compiler that DynRPG requires)
 
-1. Extract the **src\\SFML-2.4.2-TDM-GCC-32.7z** file with 7-zip to **C:\\SFML-2.4.2-TDM-GCC-32\\**
+1. Extract the **src\\SFML-2.5.0-TDM-GCC-32.7z** file with 7-zip to **C:\\SFML-2.5.0-TDM-GCC-32\\**
 
 2. Copy the rest of the included **src** folder somewhere and open the **system_opengl.cbp** project file.
 

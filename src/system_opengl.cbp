@@ -18,7 +18,7 @@
 					<Add option="-Wall" />
 					<Add option="-std=c++11" />
 					<Add option="-DBUILD_DLL" />
-					<Add directory="C:/SFML-2.4.2-TDM-GCC-32/include" />
+					<Add directory="C:/SFML-2.5.0-TDM-GCC-32/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -30,7 +30,7 @@
 					<Add library="sfml-system" />
 					<Add library="sfml-network" />
 					<Add library="DynRPG" />
-					<Add directory="C:/SFML-2.4.2-TDM-GCC-32/lib" />
+					<Add directory="C:/SFML-2.5.0-TDM-GCC-32/lib" />
 				</Linker>
 			</Target>
 		</Build>

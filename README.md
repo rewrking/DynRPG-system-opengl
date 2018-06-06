@@ -25,8 +25,8 @@ Note: If your game uses the "Play Movie" command, this plugin doesn't handle it 
 
 ## Changelog
 
-1.1 -  Updated SFML to v2.5.0 (update all *.dll files from this repo into your game)
-1.0 -  Initial release
+1.1 - Updated SFML to v2.5.0 (update all *.dll files from this repo into your game)  
+1.0 - Initial release
 
 
 ## Plugin Conflicts

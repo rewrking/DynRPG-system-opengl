@@ -306,7 +306,7 @@ Use in custom menus. These work the same way as they do in the Video Options men
 	   1. **number** - the ID of the switch
 
 
-## Advanced (Recompiling form source & adding stuff)
+## Advanced (Recompiling from source & adding stuff)
 
 Since this effectively turns your project into one that supports OpenGL, you can expand on your project in some new (but limited) ways.
 

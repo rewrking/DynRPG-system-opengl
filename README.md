@@ -113,8 +113,8 @@ http://www.rewking.com/dynrpg/
 		Shader8=Sepia
 		Shader8frag=true
 		;
-		Shader8=Invert
-		Shader8frag=true
+		Shader9=Invert
+		Shader9frag=true
 		;
 		Shader10=CB_Protanopia
 		Shader10frag=true

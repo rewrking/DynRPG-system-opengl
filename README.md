@@ -31,7 +31,7 @@ Note: If your game uses the "Play Movie" command, this plugin doesn't handle it 
 
 ## Plugin Conflicts
 
-**[game_settings](https://github.com/andrew-r-king/game_settings)** - This plugin must be removed before installing this one. Take out any files related to "another fullscreen mode" as they won't be needed.
+**[game_settings](https://github.com/rewrking/game_settings)** - This plugin must be removed before installing this one. Take out any files related to "another fullscreen mode" as they won't be needed.
 
 
 ## Installation
@@ -187,7 +187,7 @@ http://www.rewking.com/dynrpg/
 
 	If for some reason you or someone playing your game can't use OpenGL, set "UseDirectDraw" to 0 to disable it entirely.
 
-	The "Gamepad" section is actually used by the [xbx_controller](https://github.com/andrew-r-king/xbx_controller), plugin, but I'm including it here for completion's sake. If you know of any other plugins that use the Settings.ini, you'll want to account for that before copying the above one in.
+	The "Gamepad" section is actually used by the [xbx_controller](https://github.com/rewrking/xbx_controller), plugin, but I'm including it here for completion's sake. If you know of any other plugins that use the Settings.ini, you'll want to account for that before copying the above one in.
 
 
 ## Notes about Translations
